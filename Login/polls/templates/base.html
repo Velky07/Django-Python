@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <button id="theme-toggle">Tema Claro</button>
+        <div class="button-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <p></p>
+    </footer>
+    <script src="{% static 'js/tema.js' %}"></script>
+</body>
+</html>
