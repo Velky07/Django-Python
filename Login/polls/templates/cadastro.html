@@ -1,40 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Cadastro</h2>
-  <form method="post">
+<div class="container_form">
+  <h1>Formulário de Cadastro</h1>
+  <form class="form" action="{% url 'cadastro' %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div class="button-container">
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <div class="form_grupo">
+        <label for="nome" class="form_label">Nome</label>
+        <input type="text" name="nome" class="form_input" id="nome" placeholder="Nome" required>
     </div>
+      
+      <div class="form_grupo">
+          <label for="e-mail" class="form_label">Email</label>
+          <input type="email" name="email" class="form_input" id="email" placeholder="seuemail@email.com" required>
+      </div>
+      
+      <div class="form_grupo">
+          <label for="datanascimento" class="form_label">Data de Nascimento</label>
+          <input type="date" name="datanascimento" class="form_input" id="datanascimento" placeholder="Data de Nascimento" required>
+      </div>        
+      <div class="form_grupo">
+          
+          <label for="estadocivil" class="text">Estado civil</label>
+          <select name="estadocivil" class="dropdown" required>
+              
+              <option selected disabled class="form_select_option" value="">Selecione</option>
+              <option value="Solteiro" class="form_select_option">Solteiro(a)</option>
+              <option value="Casado" class="form_select_option">Casado(a) </option>
+              <option value="Divorciado" class="form_select_option">Divorciado(a)</option>                    
+              <option value="Viúvo" class="form_select_option">Viúvo(a)</option>                    
+          
+          </select>
+      </div>
+      <div class="form_grupo">
+          <span class="legenda">Sexo:</span>
+          
+          <div class="radio-btn">
+              <input type="radio" class="form_new_input" id="masculino" name="sexo" value="Masculino" required="required">
+              <label for="masculino" class="radio_label form_label"> <span class="radio_new_btn"></span> Masculino</label>
+          </div>
+          <div class="radio-btn">
+              <input type="radio" class="form_new_input" id="feminino" name="sexo" value="Feminino" required="required">
+              <label for="feminino" class="radio_label form_label"> <span class="radio_new_btn"></span> Feminino</label>
+          </div>
+      </div>
+          <div class="submit">
+            <input type="hidden" name="acao" value="enviar">
+            <button type="submit" name="Submit" class="submit_btn" >Cadastrar</button>
+          
+          </div>
   </form>
-  <div class="center">
-    <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>.</p>
-  </div>
-{% endblock %}
-
-{% block css %}
-  <style>
-    .btn {
-      border: none;
-      border-radius: 4px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 12px 24px;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: #007bff;
-    }
-
-    .btn-primary:hover {
-      background-color: #0069d9;
-    }
-  </style>
+</div><!--container_form-->
 {% endblock %}

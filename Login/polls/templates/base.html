@@ -4,14 +4,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
 </head>
 <body>
     <header>
+        <ul class="menu">
+    
+            <li class="item"><a href="/" title="Início">Início</a></li>
+            <li class="item"><a href="/login" title="Login">Login</a></li>
+            <li class="item"><a href="/cadastro" title="Cadastrar-se">Cadastrar-se</a></li>
+        
+        </ul>
     </header>
     <main>
-        <button id="theme-toggle">Tema Claro</button>
+        <div class="toggle-btn">
+            <div class="button radius" id="btn-switch">
+              <input type="checkbox" class="checkbox" />
+              <div class="on"></div>
+              <div class="off"></div>
+            </div>
+          </div>               
+        </div>
         <div class="button-container">
             {% block content %}
             {% endblock %}
@@ -20,6 +35,6 @@
     <footer>
         <p></p>
     </footer>
-    <script src="{% static 'js/tema.js' %}"></script>
+    <script src="{% static 'js/tem.js' %}"></script>
 </body>
 </html>

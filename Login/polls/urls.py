@@ -6,6 +6,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.home, name='home'),
     path('login/', views.login_view, name='login'),
-    path('cadastro/', views.cadastro_view, name='cadastro'),
-    path('mudar-tema/', views.mudar_tema_view, name='mudar_tema'),
+    path('cadastro/', views.cadastro, name='cadastro'),
+    path('sucesso/', views.sucesso, name='sucesso'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)    
